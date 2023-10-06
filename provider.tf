@@ -5,21 +5,9 @@ provider "azurerm" {
       #delete_os_disk_on_deletion = false 
     }
   }
+  
 }
 
-####this is for prod area
-provider "azurerm" {
-  features {
-    virtual_machine {
-      delete_os_disk_on_deletion = false
-    }
-  }
-  alias = "provider2-westus"
-  # client_id = "xxxx"
-  # client_secret = "yyyyy"
-  # environment = "german"
-  #subscription_id = "sajnfdsajfkjsaf"
-}
 
 
 ##when i delete a vm in azure the storage get deleted. os disk get delete
@@ -30,12 +18,15 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "2.78.0"
+      #version = "2.78.0"
     }
     random = {
       source = "hashicorp/random"
     }
-    
+    #client_id = "12c0db5b-d8ec-4d6b-b79b-6c5d5fa8153b"
+  #client_secret = SnG8Q~VHHrntQixG1s_B8owWqgIDIelykW31wdmw
+  #environment = "eastus"
+  #subscription_id = 12c0db5b-d8ec-4d6b-b79b-6c5d5fa8153b
   }
   
 }
