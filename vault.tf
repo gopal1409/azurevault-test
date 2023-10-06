@@ -25,7 +25,7 @@ resource "azurerm_key_vault" "kv" {
   location = azurerm_resource_group.rg.location
   ###when we create vault there is requirement where you need to provide the tenant id
   tenant_id = data.azurerm_client_config.current.tenant_id
-  sku_name = data.azurerm_client_config.current.object_id
+  sku_name = var.kv_sku_name
   access_policy  {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = local.current_user_id
