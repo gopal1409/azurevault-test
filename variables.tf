@@ -1,10 +1,10 @@
 variable "env" {
-  type = string
+  type    = string
   default = "Test"
 }
 
 variable "rg_name" {
-  type =  string 
+  type = string
 
 }
 
@@ -17,10 +17,10 @@ variable "kv_name" {
 }
 
 variable "kv_sku_name" {
-  type = string 
+  type = string
 }
 variable "msi_id" {
-  type = string 
+  type = string
   #it is the managed security identiy iud. if this value int null
   default = null
 }

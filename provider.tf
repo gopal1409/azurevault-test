@@ -5,7 +5,7 @@ provider "azurerm" {
       #delete_os_disk_on_deletion = false 
     }
   }
-  
+
 }
 
 
@@ -17,16 +17,16 @@ provider "azurerm" {
 terraform {
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
+      source = "hashicorp/azurerm"
       #version = "2.78.0"
     }
     random = {
       source = "hashicorp/random"
     }
     #client_id = "12c0db5b-d8ec-4d6b-b79b-6c5d5fa8153b"
-  #client_secret = SnG8Q~VHHrntQixG1s_B8owWqgIDIelykW31wdmw
-  #environment = "eastus"
-  #subscription_id = 12c0db5b-d8ec-4d6b-b79b-6c5d5fa8153b
+    #client_secret = SnG8Q~VHHrntQixG1s_B8owWqgIDIelykW31wdmw
+    #environment = "eastus"
+    #subscription_id = 12c0db5b-d8ec-4d6b-b79b-6c5d5fa8153b
   }
-  
+
 }

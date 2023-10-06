@@ -3,13 +3,13 @@
 data "azurerm_client_config" "current" {}
 
 resource "random_string" "myrandom" {
-  length = 6
-  upper = false 
+  length  = 6
+  upper   = false
   special = false
-  numeric = false   
+  numeric = false
 }
 resource "azurerm_resource_group" "rg" {
-  name = "${var.env}-${var.rg_name}-${random_string.myrandom.id}"
+  name     = "${var.env}-${var.rg_name}-${random_string.myrandom.id}"
   location = var.location
 }
 
@@ -20,21 +20,21 @@ locals {
   current_user_id = coalesce(var.msi_id, data.azurerm_client_config.current.object_id)
 }
 resource "azurerm_key_vault" "kv" {
-  name = "${var.env}-${var.rg_name}-${random_string.myrandom.id}"
-  resource_group_name = azurerm_resource_group.rg.name  
-  location = azurerm_resource_group.rg.location
+  name                = "${var.env}-${var.rg_name}-${random_string.myrandom.id}"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
   ###when we create vault there is requirement where you need to provide the tenant id
   tenant_id = data.azurerm_client_config.current.tenant_id
-  sku_name = var.kv_sku_name
-  access_policy  {
+  sku_name  = var.kv_sku_name
+  access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = local.current_user_id
     secret_permissions = [
-        "Set",
-        "Get",
-        "Delete",
-        "Purge",
-        "List"
+      "Set",
+      "Get",
+      "Delete",
+      "Purge",
+      "List"
     ]
   }
 }
